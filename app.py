@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, jsonify
 app = Flask(__name__)
 template_folder="templates",
 static_folder='static'
+
 # ---------------- HOME ----------------
 @app.route('/')
 def home():
