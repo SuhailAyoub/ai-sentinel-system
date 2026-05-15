@@ -1,0 +1,169 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#071120;
+    color:white;
+}
+
+/* Navbar */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:#0b1728;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo i{
+    color:#4db8ff;
+    font-size:30px;
+}
+
+.logo p{
+    color:#aaa;
+    font-size:13px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active{
+    color:#4db8ff;
+}
+
+/* Dashboard */
+
+.dashboard-container{
+    display:flex;
+    gap:25px;
+    padding:30px;
+}
+
+.left-panel{
+    flex:2;
+}
+
+.right-panel{
+    flex:1;
+}
+
+.card{
+    background:#101c2f;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+.big-card{
+    min-height:260px;
+}
+
+.camera-box{
+    margin-top:30px;
+    text-align:center;
+}
+
+.camera-box i{
+    font-size:70px;
+    color:#4db8ff;
+    margin-bottom:15px;
+}
+
+.start-btn{
+    margin-top:30px;
+    padding:14px 25px;
+    border:none;
+    border-radius:12px;
+    background:#4db8ff;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.stats-grid .card{
+    text-align:center;
+}
+
+.stats-grid i{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.red{
+    color:#ff4d4d;
+}
+
+.yellow{
+    color:#ffd633;
+}
+
+.orange{
+    color:#ff944d;
+}
+
+.green{
+    color:#4dff88;
+}
+
+.emotion-list{
+    margin-top:20px;
+}
+
+.emotion-item{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.alert-box{
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.red-alert{
+    background:#3b1111;
+    color:#ff6666;
+}
+
+.yellow-alert{
+    background:#3b320f;
+    color:#ffd633;
+}
+
+.blue-alert{
+    background:#0d2a42;
+    color:#4db8ff;
+}

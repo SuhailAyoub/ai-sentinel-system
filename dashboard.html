@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>AI Sentinel</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="#">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-bell"></i>
+                    Alerts
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <h1>Live Monitoring Dashboard</h1>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="https://i.pravatar.cc/40" alt="profile">
+
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+
+        <section class="cards">
+
+            <!-- Environment Score -->
+
+            <div class="card score-card">
+
+                <h3>Environment Score</h3>
+
+                <div class="circle">
+                    72%
+                </div>
+
+                <p class="moderate">Moderate</p>
+
+            </div>
+
+            <!-- Camera Feed -->
+
+            <div class="card camera-card">
+
+                <h3>Live Camera Feed</h3>
+
+                <div class="camera-feed">
+
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72"
+                        alt="camera">
+
+                    <span class="live">LIVE</span>
+
+                </div>
+
+            </div>
+
+            <!-- Emotion Detection -->
+
+            <div class="card">
+
+                <h3>Emotion Detection</h3>
+
+                <ul class="emotion-list">
+                    <li>Neutral <span>60%</span></li>
+                    <li>Happy <span>15%</span></li>
+                    <li>Sad <span>10%</span></li>
+                    <li>Angry <span>10%</span></li>
+                    <li>Fear <span>5%</span></li>
+                </ul>
+
+            </div>
+
+            <!-- Sound Analysis -->
+
+            <div class="card">
+
+                <h3>Sound Analysis</h3>
+
+                <div class="sound-wave">
+                    <i class="fa-solid fa-wave-square"></i>
+                </div>
+
+                <p>Moderate Noise - 65 dB</p>
+
+            </div>
+
+            <!-- Toxicity -->
+
+            <div class="card">
+
+                <h3>Toxicity Detection</h3>
+
+                <div class="toxicity-box">
+
+                    <div class="toxicity-bar">
+                        <div class="toxicity-fill"></div>
+                    </div>
+
+                    <p>Low - 12%</p>
+
+                </div>
+
+            </div>
+
+            <!-- Alerts -->
+
+            <div class="card alerts-card">
+
+                <h3>Recent Alerts</h3>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Loud Noise Detected
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Toxic Speech Detected
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Angry Emotion Detected
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

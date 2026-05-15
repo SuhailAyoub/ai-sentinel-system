@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports - AI Sentinel</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/reports.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h2>AI Sentinel</h2>
+
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="alerts.html">
+                    <i class="fa-solid fa-bell"></i>
+                    Alerts
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <h1>Analytics & Reports</h1>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="https://i.pravatar.cc/40" alt="profile">
+
+            </div>
+
+        </div>
+
+        <!-- Report Cards -->
+
+        <section class="report-cards">
+
+            <div class="report-card">
+
+                <h2>92%</h2>
+
+                <p>Emotion Detection Accuracy</p>
+
+            </div>
+
+            <div class="report-card">
+
+                <h2>127</h2>
+
+                <p>Total Alerts Generated</p>
+
+            </div>
+
+            <div class="report-card">
+
+                <h2>24/7</h2>
+
+                <p>Monitoring Active</p>
+
+            </div>
+
+            <div class="report-card">
+
+                <h2>18</h2>
+
+                <p>Critical Events</p>
+
+            </div>
+
+        </section>
+
+        <!-- Charts Section -->
+
+        <section class="charts">
+
+            <!-- Emotion Chart -->
+
+            <div class="chart-card">
+
+                <h3>Emotion Analysis</h3>
+
+                <div class="chart-placeholder">
+
+                    <div class="bar angry"></div>
+                    <div class="bar sad"></div>
+                    <div class="bar neutral"></div>
+                    <div class="bar happy"></div>
+
+                </div>
+
+                <div class="labels">
+
+                    <span>Angry</span>
+                    <span>Sad</span>
+                    <span>Neutral</span>
+                    <span>Happy</span>
+
+                </div>
+
+            </div>
+
+            <!-- Noise Chart -->
+
+            <div class="chart-card">
+
+                <h3>Noise Monitoring</h3>
+
+                <div class="wave-container">
+
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+
+                </div>
+
+                <p class="noise-level">
+                    Average Noise Level: 65 dB
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Report Table -->
+
+        <section class="table-section">
+
+            <h3>Recent AI Reports</h3>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Date</th>
+                        <th>Emotion</th>
+                        <th>Noise</th>
+                        <th>Toxicity</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>10 May 2026</td>
+                        <td>Angry</td>
+                        <td>High</td>
+                        <td>Detected</td>
+                        <td class="danger">Critical</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>09 May 2026</td>
+                        <td>Neutral</td>
+                        <td>Moderate</td>
+                        <td>None</td>
+                        <td class="safe">Safe</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>08 May 2026</td>
+                        <td>Sad</td>
+                        <td>Low</td>
+                        <td>Low</td>
+                        <td class="warning">Warning</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Sentinel</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+                <h2>AI Sentinel</h2>
+                <p>Smart Environment Protection</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+
+                <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+
+                <li><a href="/dashboard">Dashboard</a></li>
+
+                <li><a href="/alerts">Alerts</a></li>
+
+                <li><a href="/reports">Reports</a></li>
+
+                <a href="/setting">Settings</a>
+
+            </ul>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="/login">
+    <button class="login-btn">Login</button>
+</a>
+    
+<a href="/signup" class="signup-btn">Sign Up</a>
+        </div>
+
+    </header>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <!-- Left -->
+
+        <div class="hero-left">
+
+            <div class="tag">
+                <i class="fa-solid fa-circle"></i>
+                AI POWERED MONITORING SYSTEM
+            </div>
+
+            <h1>
+                AI Negative Environment
+                <span>Detection System</span>
+            </h1>
+
+            <p>
+                Real-time AI monitoring system that detects emotions,
+                aggressive sounds, toxic speech and unsafe environments
+                to ensure a safer and smarter world.
+            </p>
+
+           <div class="hero-buttons">
+               <a href="/dashboard">
+    <button class="primary-btn">
+        Start Monitoring
+    </button>
+</a>
+
+<a href="/dashboard">
+                <button class="secondary-btn">
+                    View Dashboard
+                </button>
+</a>
+            </div>
+
+            <!-- Status -->
+
+            <div class="status-container">
+
+                <div class="status-box">
+                    <i class="fa-solid fa-microchip"></i>
+                    <div>
+                        <h3>AI Status</h3>
+                        <p id="ai-status">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <i class="fa-solid fa-camera"></i>
+                    <div>
+                        <h3>Camera</h3>
+                        <p id="camera-status">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <i class="fa-solid fa-microphone"></i>
+                    <div>
+                        <h3>Microphone</h3>
+                        <p>Monitoring</p>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <i class="fa-solid fa-shield"></i>
+                    <div>
+                        <h3>System</h3>
+                        <p>Secure</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="hero-right">
+
+            <div class="dashboard">
+
+                <h2>Live Monitoring Dashboard</h2>
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-card score-card">
+                        <h3>Environment Score</h3>
+
+                        <div class="circle">
+                            72%
+                        </div>
+
+                        <p>Moderate</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Emotion Detection</h3>
+
+                        <ul>
+                            <li>Neutral - 60%</li>
+                            <li>Happy - 15%</li>
+                            <li>Sad - 10%</li>
+                            <li>Angry - 10%</li>
+                        </ul>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Sound Analysis</h3>
+
+                        <p>Moderate - 65 dB</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Recent Alerts</h3>
+
+                        <ul>
+                            <li>Loud Noise Detected</li>
+                            <li>Toxic Speech Detected</li>
+                            <li>Angry Emotion Detected</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+    <section class="features">
+
+        <div class="feature-card">
+            <i class="fa-solid fa-face-angry"></i>
+            <h3 id="live-emotion">Loading...</h3>
+            <p>Detects human emotions in real-time using AI.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-wave-square"></i>
+            <h3>Aggressive Sound</h3>
+            <p>Detects shouting, screams and aggressive sounds.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-comments"></i>
+            <h3>Toxic Speech</h3>
+            <p>Analyzes speech and text for harmful content.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-bell"></i>
+            <h3>Real-Time Alerts</h3>
+            <p>Instant alerts and notifications for threats.</p>
+        </div>
+
+    </section>
+
+<script>
+
+async function updateDashboard() {
+
+    const response = await fetch('/status');
+
+    const data = await response.json();
+
+    document.getElementById("ai-status").innerText =
+    data.ai_status;
+
+    document.getElementById("camera-status").innerText =
+    data.camera;
+
+}
+
+setInterval(updateDashboard, 1000);
+
+updateDashboard();
+
+</script>
+
+
+<script>
+
+async function updateEmotion() {
+
+    const response = await fetch('/emotion');
+
+    const data = await response.json();
+
+    document.getElementById("live-emotion").innerText =
+    data.emotion;
+
+}
+
+setInterval(updateEmotion, 1000);
+
+updateEmotion();
+
+</script>
+
+
+
+
+</body>
+
+</html>

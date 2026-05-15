@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sentinel Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+                <h2>AI Sentinel</h2>
+                <p>Monitoring Dashboard</p>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/alerts">Alerts</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/setting">Settings</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <section class="dashboard-container">
+
+        <!-- Left Panel -->
+        <div class="left-panel">
+
+            <div class="card big-card">
+                <h2>Live Monitoring</h2>
+
+                <div class="camera-box">
+                    <i class="fa-solid fa-camera"></i>
+                    <p>Camera Active</p>
+                </div>
+
+                <button class="start-btn">
+                    <i class="fa-solid fa-play"></i>
+                    Start AI Detection
+                </button>
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="card">
+                    <i class="fa-solid fa-face-angry red"></i>
+                    <h3>Angry Detection</h3>
+                    <p>3 Alerts Today</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-microphone-lines yellow"></i>
+                    <h3>Noise Monitoring</h3>
+                    <p>Normal</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-triangle-exclamation orange"></i>
+                    <h3>Threat Level</h3>
+                    <p>Moderate</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-shield-heart green"></i>
+                    <h3>System Status</h3>
+                    <p>Protected</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+
+            <div class="card">
+                <h2>Emotion Analytics</h2>
+
+                <div class="emotion-list">
+                    <div class="emotion-item">
+                        <span>Neutral</span>
+                        <span>60%</span>
+                    </div>
+
+                    <div class="emotion-item">
+                        <span>Happy</span>
+                        <span>20%</span>
+                    </div>
+
+                    <div class="emotion-item">
+                        <span>Sad</span>
+                        <span>10%</span>
+                    </div>
+
+                    <div class="emotion-item">
+                        <span>Angry</span>
+                        <span>10%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Recent Alerts</h2>
+
+                <div class="alert-box red-alert">
+                    <i class="fa-solid fa-bell"></i>
+                    Angry Emotion Detected
+                </div>
+
+                <div class="alert-box yellow-alert">
+                    <i class="fa-solid fa-volume-high"></i>
+                    Loud Noise Detected
+                </div>
+
+                <div class="alert-box blue-alert">
+                    <i class="fa-solid fa-camera"></i>
+                    Camera Connected
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>

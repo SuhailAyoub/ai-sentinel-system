@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Sentinel - Security Settings</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#0b1120;
+      color:white;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:18px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#0f172a;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo i{
+      color:#38bdf8;
+      font-size:28px;
+    }
+
+    .logo h2{
+      font-size:28px;
+    }
+
+    .menu{
+      display:flex;
+      gap:35px;
+    }
+
+    .menu a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      font-size:17px;
+    }
+
+    .menu a:hover,
+    .menu .active{
+      color:#38bdf8;
+    }
+
+    /* SETTINGS CONTAINER */
+
+    .settings-container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .settings-box{
+      width:850px;
+      background:#111827;
+      padding:40px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .settings-box h1{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+
+    .settings-box p{
+      color:#94a3b8;
+      margin-bottom:30px;
+      line-height:1.6;
+    }
+
+    .section-title{
+      color:#38bdf8;
+      margin:35px 0 20px;
+      font-size:24px;
+      border-left:4px solid #38bdf8;
+      padding-left:10px;
+    }
+
+    .setting-group{
+      margin-bottom:22px;
+    }
+
+    .setting-group label{
+      display:block;
+      margin-bottom:10px;
+      font-size:16px;
+      color:#e5e7eb;
+    }
+
+    .setting-group input,
+    .setting-group select{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#1e293b;
+      color:white;
+      outline:none;
+      font-size:15px;
+    }
+
+    .toggle-box{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#1e293b;
+      padding:18px;
+      border-radius:14px;
+      margin-bottom:18px;
+      transition:0.3s;
+    }
+
+    .toggle-box:hover{
+      background:#243244;
+    }
+
+    .toggle-box h3{
+      font-size:17px;
+      margin-bottom:4px;
+    }
+
+    .toggle-box p{
+      margin:0;
+      font-size:13px;
+      color:#94a3b8;
+    }
+
+    .toggle-box input{
+      width:22px;
+      height:22px;
+      cursor:pointer;
+    }
+
+    .save-btn{
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:14px;
+      background:#38bdf8;
+      color:#0f172a;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      margin-top:25px;
+      transition:0.3s;
+    }
+
+    .save-btn:hover{
+      background:#0ea5e9;
+      transform:scale(1.02);
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+      }
+
+      .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:20px;
+      }
+
+      .settings-box{
+        width:100%;
+        padding:25px;
+      }
+
+      .settings-box h1{
+        font-size:30px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h2>AI Sentinel</h2>
+    </div>
+
+    <div class="menu">
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/alerts">Alerts</a>
+      <a href="/reports">Reports</a>
+      <a href="/settings" class="active">Settings</a>
+    </div>
+
+  </nav>
+
+  <!-- SETTINGS -->
+
+  <section class="settings-container">
+
+    <div class="settings-box">
+
+      <h1>Security & System Settings</h1>
+
+      <p>
+        Manage your account security, AI monitoring system,
+        notifications and advanced protection settings.
+      </p>
+
+      <!-- PROFILE -->
+
+      <h2 class="section-title">Profile Settings</h2>
+      <form action="/save_settings" method="POST">
+      <div class="setting-group">
+        <label>Administrator Name</label>
+        <input type="text" name="admin_name" placeholder="Enter admin name">
+      </div>
+
+      <div class="setting-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Enter email">
+      </div>
+
+      <div class="setting-group">
+        <label>Add New Phone Number</label>
+        <input type="tel" name="phone" placeholder="Enter phone number">
+      </div>
+
+      <!-- PASSWORD -->
+
+      <h2 class="section-title">Password & Authentication</h2>
+
+      <div class="setting-group">
+        <label>Current Password</label>
+        <input type="password" name="current_password" placeholder="Enter current password">
+      </div>
+
+      <div class="setting-group">
+        <label>New Password</label>
+        <input type="password" name="new_password" placeholder="Enter new password">
+      </div>
+
+      <div class="setting-group">
+        <label>Confirm New Password</label>
+        <input type="password" name="confirm_password" placeholder="Confirm new password">
+      </div>
+    
+     
+      <!-- SECURITY -->
+
+      <h2 class="section-title">Advanced Security</h2>
+
+      <div class="toggle-box">
+        <div>
+          <h3>Two-Factor Authentication (2FA)</h3>
+          <p>Extra verification for secure login access</p>
+        </div>
+
+        <input type="checkbox" name="two_factor" checked>
+      </div>
+
+      <div class="toggle-box">
+        <div>
+          <h3>Login Activity Monitoring</h3>
+          <p>Track suspicious login attempts</p>
+        </div>
+
+        <input type="checkbox" name="login_monitoring" checked>
+      </div>
+
+      <div class="toggle-box">
+        <div>
+          <h3>Email Security Alerts</h3>
+          <p>Receive security notifications by email</p>
+        </div>
+
+        <input type="checkbox" name="email_alerts" checked>
+      </div>
+
+      <div class="toggle-box">
+        <div>
+          <h3>Auto Session Logout</h3>
+          <p>Automatically logout after inactivity</p>
+        </div>
+
+        <input type="checkbox" name="auto_logout">
+      </div>
+
+      <div class="toggle-box">
+        <div>
+          <h3>Device Verification</h3>
+          <p>Allow login only from verified devices</p>
+        </div>
+
+        <input type="checkbox" name="device_verification">
+      </div>
+
+      <!-- AI SYSTEM -->
+
+      <h2 class="section-title">AI Monitoring Settings</h2>
+
+      <div class="setting-group">
+        <label>Detection Sensitivity</label>
+
+        <select name="detection_sensitivity">
+          <option>Low</option>
+          <option selected>Medium</option>
+          <option>High</option>
+        </select>
+      </div>
+
+      <div class="setting-group">
+        <label>Camera Source</label>
+
+        <select name="camera_source">
+          <option>Webcam 1</option>
+          <option>Webcam 2</option>
+          <option>CCTV Camera</option>
+        </select>
+      </div>
+
+      <!-- SYSTEM TOGGLES -->
+
+      <div class="toggle-box">
+        <div>
+          <h3>Real-Time Detection</h3>
+          <p>Enable live AI environment monitoring</p>
+        </div>
+
+        <input type="checkbox" name="real_time_detection" checked>
+      </div>
+
+      <div class="toggle-box">
+        <div>
+          <h3>Alert Notifications</h3>
+          <p>Receive danger & unsafe environment alerts</p>
+        </div>
+
+        <input type="checkbox" name="alert_notification" checked>
+      </div>
+
+      <div class="toggle-box">
+        <div>
+          <h3>Dark Mode</h3>
+          <p>Enable dark user interface theme</p>
+        </div>
+
+        <input type="checkbox" name="dark_mode" checked>
+      </div>
+
+      <button class="save-btn">
+        Save All Settings
+      </button>
+
+    </div>
+
+  </section>
+
+</body>
+</html>

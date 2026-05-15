@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alerts - AI Sentinel</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/alerts.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h2>AI Sentinel</h2>
+
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/alerts">
+                    <i class="fa-solid fa-bell"></i>
+                    Alerts
+                </a>
+            </li>
+
+            <li>
+                <a href="/reports">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="/settings">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <h1>Alert Monitoring System</h1>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="https://i.pravatar.cc/40" alt="profile">
+
+            </div>
+
+        </div>
+
+        <!-- Alert Stats -->
+
+        <section class="alert-stats">
+
+            <div class="stat-card">
+
+                <h2 id="total-alerts">23</h2>
+
+                <p>Total Alerts</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 id="critical-alerts">5</h2>
+
+                <p>Critical Alerts</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 id="moderate-alerts">12</h2>
+
+                <p>Moderate Alerts</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 id="resolved-alerts">6</h2>
+
+                <p>Resolved</p>
+
+            </div>
+
+        </section>
+
+        <!-- Alert List -->
+
+        <section class="alerts-container">
+
+            <!-- Alert Card -->
+
+            <div class="alert-card critical">
+
+                <div class="alert-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div class="alert-details">
+
+                    <div class="alert-details">
+
+    <h3 id="recent-alert">Waiting...</h3>
+
+    <p id="noise-value">0 dB</p>
+
+    <p id="emotion">Neutral</p>
+
+</div>
+
+                    <h3 id="live-alert">Toxic Speech Detected</h3>
+
+                    <p id="live-noise">
+                        Harmful speech detected from microphone input.
+                    </p>
+
+                    <span>Today • 02:14 PM</span>
+
+                </div>
+
+                <div class="alert-status">
+                    Critical
+                </div>
+
+            </div>
+
+            <!-- Alert -->
+
+            <div class="alert-card warning">
+
+                <div class="alert-icon">
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+
+                <div class="alert-details">
+
+                    <h3 id="card2-title">Aggressive Sound Detected</h3>
+
+                    <p id="card2-desc">
+                        Loud shouting and aggressive sound identified.
+                    </p>
+
+                    <span id="card2-time">Today • 01:40 PM</span>
+
+                </div>
+
+                <div id="card2-status" class="alert-status">
+                    Warning
+                </div>
+
+            </div>
+
+            <!-- Alert -->
+
+            <div class="alert-card info">
+
+                <div class="alert-icon">
+                    <i class="fa-solid fa-face-angry"></i>
+                </div>
+
+                <div class="alert-details">
+
+                    <h3 id="card3-title">Angry Emotion Detected</h3>
+
+                    <p id="card3-desc">
+                        AI identified high anger emotion from live feed.
+                    </p>
+
+                    <span id="card3-time">Today • 12:05 PM</span>
+
+                </div>
+
+                <div id="card3-status" class="alert-status">
+                    Moderate
+                </div>
+
+            </div>
+
+            <!-- Alert -->
+
+            <div class="alert-card success">
+
+                <div class="alert-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div class="alert-details">
+
+                    <h3 id="card4-title">System Back to Safe State</h3>
+
+                    <p id="card4-desc">
+                        Environment conditions returned to normal.
+                    </p>
+
+                    <span id="card4-time">Today • 11:20 AM</span>
+
+                </div>
+
+                <div id="card4-status" class="alert-status">
+                    Resolved
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<script>
+
+async function updateStatus() {
+
+    const response = await fetch('/status');
+
+    const data = await response.json();
+
+    document.getElementById("emotion").innerText =
+        data.emotion;
+
+    document.getElementById("noise-value").innerText =
+        data.noise;
+
+    document.getElementById("recent-alert").innerText =
+        data.alert;
+
+    document.getElementById("card3-time").innerText = now;
+
+    document.getElementById("card4-time").innerText = now;    
+
+}
+
+setInterval(updateStatus, 1000);
+
+updateStatus();
+
+
+</script>
+
+<script>
+
+async function updateStatus() {
+
+    const response = await fetch('/status');
+    const data = await response.json();
+
+    document.getElementById("recent-alert").innerText =
+        data.alert;
+
+    document.getElementById("noise-value").innerText =
+        data.noise;
+
+    document.getElementById("emotion").innerText =
+        data.emotion;
+
+    if (data.alert.includes("Danger")) {
+
+        let critical =
+            document.getElementById("critical-alerts");
+
+        critical.innerText =
+            parseInt(critical.innerText) + 1;
+
+    }
+
+    else if (data.alert.includes("Warning")) {
+
+        let moderate =
+            document.getElementById("moderate-alerts");
+
+        moderate.innerText =
+            parseInt(moderate.innerText) + 1;
+
+    }
+
+    else {
+
+        let resolved =
+            document.getElementById("resolved-alerts");
+
+        resolved.innerText =
+            parseInt(resolved.innerText) + 1;
+    }
+
+    let total =
+        document.getElementById("total-alerts");
+
+    total.innerText =
+        parseInt(total.innerText) + 1;
+}
+
+setInterval(updateStatus, 3000);
+
+updateStatus();
+
+</script>
+
+
+<script>
+
+async function updateStatus() {
+
+    const response = await fetch('/status');
+
+    const data = await response.json();
+
+    const now = new Date().toLocaleString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    });
+
+
+
+    // CARD 2
+
+    if (data.alert.includes("Warning")) {
+
+        document.getElementById("card2-title").innerText =
+            "Aggressive Sound Detected";
+
+        document.getElementById("card2-desc").innerText =
+            "Loud shouting and aggressive sound identified.";
+
+        document.getElementById("card2-status").innerText =
+            "Warning";
+
+        document.getElementById("card2-time").innerText =
+            now;
+    }
+
+
+
+    // CARD 3
+
+    if (data.emotion == "Angry") {
+
+        document.getElementById("card3-title").innerText =
+            "Angry Emotion Detected";
+
+        document.getElementById("card3-desc").innerText =
+            "AI identified high anger emotion from live feed.";
+
+        document.getElementById("card3-status").innerText =
+            "Moderate";
+
+        document.getElementById("card3-time").innerText =
+            now;
+    }
+
+
+
+    // CARD 4
+
+    if (data.alert.includes("system normal")) {
+
+        document.getElementById("card4-title").innerText =
+            "System Back To Safe State";
+
+        document.getElementById("card4-desc").innerText =
+            "Environment returned to normal.";
+
+        document.getElementById("card4-status").innerText =
+            "Resolved";
+
+        document.getElementById("card4-time").innerText =
+            now;
+    }
+
+}
+
+
+setInterval(updateStatus, 1000);
+
+updateStatus();
+
+</script>
+
+</body>
+
+</html>

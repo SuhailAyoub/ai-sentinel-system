@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+<script>
+
+async function updateDashboard() {
+
+    const response = await fetch('/status');
+    const data = await response.json();
+
+    document.getElementById("live-emotion").innerText =
+        data.emotion;
+
+    document.getElementById("env-score").innerText =
+        data.score + "%";
+
+    document.getElementById("toxicity-value").innerText =
+        "Low - " + data.toxicity + "%";
+    
+    document.getElementById("toxicity-bar").style.width =
+    data.toxicity + "%";
+
+    document.getElementById("recent-alert").innerText =
+        data.alert;
+
+    document.getElementById("sound-fill").style.width =
+    parseInt(data.noise) + "%";   
+    
+    
+    document.getElementById("ai-status").innerText =
+    data.ai_status;
+
+}
+
+setInterval(updateDashboard, 1000);
+
+updateDashboard();
+
+</script>
+
+
+
+
+
+
+    <script>
+
+async function updateEmotion(){
+
+    let response = await fetch('/emotion');
+
+    let data = await response.json();
+    console.log(data);
+
+    document.getElementById("emotion").innerText =
+        data.emotion;
+
+}
+
+setInterval(updateEmotion, 1000);
+
+</script>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>AI Sentinel</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="/dashboard" class="nav-items">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/alerts" class="nav-item>
+                    <i class="fa-solid fa-bell"></i>
+                    Alerts
+                </a>
+            </li>
+
+            <li>
+                <a href="/reports" class="nav-item>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="/setting" class="nav-item>
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <h1>Live Monitoring Dashboard</h1>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="https://i.pravatar.cc/40" alt="profile">
+
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+
+        <section class="cards">
+
+            <!-- Environment Score -->
+
+            <div class="card score-card">
+
+                <h3>Environment Score</h3>
+
+                <div class="circle">
+                    <h2 id="env-score">72%</h2>
+                </div>
+
+                <p class="moderate">Moderate</p>
+
+            </div>
+
+            <!-- Camera Feed -->
+
+            <div class="card camera-card">
+
+                <h3>Live Camera Feed</h3>
+
+                <div class="camera-feed">
+
+                    <img src="{{ url_for('video_feed') }}" width="100%">
+
+                    <span class="live">LIVE</span>
+
+                </div>
+
+            </div>
+
+            <!-- Emotion Detection -->
+<!-- Emotion Detection -->
+
+<div class="card">
+
+    <h3>Emotion Detection</h3>
+
+    <div style="padding-top:20px;">
+
+        <h1 id="live-emotion"
+            style="color:#4ade80;">
+            <span id="emotion">loading...</span>"
+        </h1>
+
+    </div>
+
+</div>
+          
+
+            
+
+            <!-- Sound Analysis -->
+
+            <div class="card">
+
+                <h3>Sound Analysis</h3>
+            <div class="sound-wave">
+                 <div id="sound-fill" class="sound-fill"></div>
+</div>
+
+                <p id="noise-value">Moderate Noise - 65 dB</p>
+
+            </div>
+
+            <!-- Toxicity -->
+
+            <div class="card">
+
+                <h3>Toxicity Detection</h3>
+
+                <div class="toxicity-box">
+
+                    <div class="toxicity-bar">
+                        <div class="toxicity-fill"></div>
+                    </div>
+
+                    <p id="toxicity-value">Low - 12%</p>
+
+                </div>
+
+            </div>
+
+            <!-- Alerts -->
+
+            <div class="card alerts-card">
+
+                <h3>Recent Alerts</h3>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Loud Noise Detected
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Toxic Speech Detected
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span id="recent-alert">System Normal</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<script>
+async function updateStatus() {
+
+    const response = await fetch('/status');
+    const data = await response.json();
+
+    // Emotion
+    document.getElementById("live-emotion").innerText =
+        data.emotion;
+
+    // Environment Score
+    document.getElementById("env-score").innerText =
+        data.score + "%";
+
+    // Toxicity
+    document.getElementById("toxicity-value").innerText =
+        "Low - " + data.toxicity + "%";
+
+    // Alerts
+    document.getElementById("recent-alert").innerText =
+        data.alert;
+
+
+    document.getElementById("noise-value").innerText =
+    "Moderate Noise - " + data.noise;    
+}
+
+setInterval(updateStatus, 1000);
+</script>
+
+    
+<script>
+
+async function updateDashboard() {
+
+    const response = await fetch('/status');
+    const data = await response.json();
+
+    console.log(data);
+
+    document.getElementById("live-emotion").innerText =
+        data.emotion;
+
+}
+
+setInterval(updateDashboard, 1000);
+
+updateDashboard();
+
+</script>
+
+
+
+<script>
+
+async function updateEmotion() {
+
+    try {
+
+        const response = await fetch('/status');
+        const data = await response.json();
+
+        console.log(data);
+
+        document.querySelector('#live-emotion').innerHTML =
+            data.emotion;
+
+    }
+
+    catch(err) {
+
+        console.log(err);
+
+    }
+
+}
+
+setInterval(updateEmotion, 1000);
+
+updateEmotion();
+
+</script>
+
+
+<script>
+
+async function updateDashboard() {
+
+    const response = await fetch('/data');
+
+    const data = await response.json();
+
+    document.getElementById("score").innerText = data.score;
+
+    document.getElementById("emotion").innerText = data.emotion;
+
+    document.getElementById("toxicity").innerText = data.toxicity;
+
+    document.getElementById("alert").innerText = data.alert;
+}
+
+setInterval(updateDashboard, 1000);
+
+updateDashboard();
+
+</script>
+
+
+<script>
+
+async function updateDashboard() {
+
+    const response = await fetch('/emotion');
+
+    const data = await response.json();
+
+    document.getElementById("emotion").innerText =
+        data.emotion;
+
+    document.getElementById("score").innerText =
+        data.score + "%";
+
+    document.getElementById("toxicity").innerText =
+        "Low - " + data.toxicity + "%";
+}
+
+setInterval(updateDashboard, 2000);
+
+</script>
+
+
+
+</body>
+
+</html>

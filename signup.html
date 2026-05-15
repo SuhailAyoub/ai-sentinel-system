@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Sentinel - Sign Up</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #020617, #0f172a);
+      overflow: hidden;
+      position: relative;
+      color: white;
+    }
+
+    /* BACKGROUND GLOW */
+
+    .glow1,
+    .glow2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.4;
+    }
+
+    .glow1 {
+      width: 300px;
+      height: 300px;
+      background: #38bdf8;
+      top: -50px;
+      left: -50px;
+    }
+
+    .glow2 {
+      width: 300px;
+      height: 300px;
+      background: #2563eb;
+      bottom: -50px;
+      right: -50px;
+    }
+
+    /* SIGNUP BOX */
+
+    .signup-container {
+      width: 420px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 40px;
+      backdrop-filter: blur(15px);
+      z-index: 1;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo i {
+      font-size: 45px;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .logo h1 {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .logo p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* INPUTS */
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #e2e8f0;
+      font-size: 15px;
+    }
+
+    .input-box {
+      position: relative;
+    }
+
+    .input-box i {
+      position: absolute;
+      top: 16px;
+      left: 15px;
+      color: #94a3b8;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 14px 14px 14px 45px;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      background: #1e293b;
+      color: white;
+      font-size: 15px;
+    }
+
+    .input-box input::placeholder {
+      color: #94a3b8;
+    }
+
+    /* BUTTON */
+
+    .signup-btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 14px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .signup-btn:hover {
+      background: #0ea5e9;
+      transform: scale(1.02);
+    }
+
+    /* LOGIN LINK */
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:500px) {
+      .signup-container {
+        width: 90%;
+        padding: 30px;
+      }
+
+      .logo h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND EFFECT -->
+
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+
+  <!-- SIGNUP BOX -->
+
+  <div class="signup-container">
+
+    <div class="logo">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h1>AI Sentinel</h1>
+      <p>Create your monitoring account</p>
+    </div>
+
+    <form>
+
+      <div class="input-group">
+        <label>Full Name</label>
+
+        <div class="input-box">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Enter full name">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Email Address</label>
+
+        <div class="input-box">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" placeholder="Enter email">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Phone Number</label>
+
+        <div class="input-box">
+          <i class="fa-solid fa-phone"></i>
+          <input type="tel" placeholder="Enter phone number">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+
+        <div class="input-box">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Create password">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Password</label>
+
+        <div class="input-box">
+          <i class="fa-solid fa-key"></i>
+          <input type="password" placeholder="Confirm password">
+        </div>
+      </div>
+
+      <button class="signup-btn">
+        Create Account
+      </button>
+
+    </form>
+
+    <div class="login-link">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
