@@ -8,7 +8,7 @@ from database import db
 import os
 import cv2
 import random
-import sounddevice as sd
+#import sounddevice as sd
 import numpy as np
 app = Flask(__name__)
 
@@ -93,30 +93,6 @@ def generate_frames():
                b'Content-Type: image/jpeg\r\n\r\n' +
                frame + b'\r\n')
         
-
-def detect_sound():
-
-    duration = 1
-    fs = 44100
-
-    recording = sd.rec(
-        int(duration * fs),
-        samplerate=fs,
-        channels=1
-    )
-
-    sd.wait()
-
-    volume = np.linalg.norm(recording) * 10
-
-    if volume > 80:
-        return "Aggressive Noise", int(volume)
-
-    elif volume > 40:
-        return "Moderate Noise", int(volume)
-
-    else:
-        return "Low Noise", int(volume)
 
 
 
