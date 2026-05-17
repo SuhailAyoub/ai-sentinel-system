@@ -1,4 +1,6 @@
 import sqlite3
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
 
 connection = sqlite3.connect("ai_dashboard.db")
 

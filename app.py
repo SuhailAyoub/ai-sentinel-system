@@ -4,12 +4,25 @@ from flask import jsonify
 from flask_dance.contrib.google import make_google_blueprint, google
 from fer import FER
 from flask import jsonify
+from database import db
 import os
 import cv2
 import random
 import sounddevice as sd
 import numpy as np
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ai_dashboard.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+# ---------- DATABASE TABLE ----------
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
+
 app.secret_key = "secret123"
 
 google_bp = make_google_blueprint(
