@@ -2,7 +2,7 @@ from flask import Flask, render_template,  Response
 from flask import session, request, redirect
 from flask import jsonify
 from flask_dance.contrib.google import make_google_blueprint, google
-from fer import FER
+#from fer import FER
 from flask import jsonify
 from database import db
 import os
