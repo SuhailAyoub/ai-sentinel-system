@@ -286,13 +286,22 @@ async function updateStatus() {
 
 
     document.getElementById("noise-value").innerText =
-    "Moderate Noise - " + data.noise;    
+    data.environment + " - " + data.noise;    
 }
 
 setInterval(updateStatus, 1000);
 </script>
 
-    
+<script>
+    if(data.alert.includes("Danger")){
+
+    const alarm = new Audio(
+        "https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"
+    );
+
+    alarm.play();
+}
+</script>    
 <script>
 
 async function updateDashboard() {
